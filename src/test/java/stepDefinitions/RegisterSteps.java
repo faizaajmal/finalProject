@@ -48,7 +48,6 @@ public class RegisterSteps {
         WebElement firstNameField=getElementByName("Forename");
         firstNameField.sendKeys(firstname);
         Assert.assertEquals("FirstName entered correctly", firstname, firstNameField.getAttribute("value"));
-
     }
 
     @And("I enter a valid lastname {string}")
@@ -56,7 +55,6 @@ public class RegisterSteps {
         WebElement lastNameField=getElementByName("Surname");
         lastNameField.sendKeys(lastname);
         Assert.assertEquals("LastName entered correctly", lastname, lastNameField.getAttribute("value"));
-
     }
 
     @And("I enter a valid email {string}")
@@ -68,8 +66,6 @@ public class RegisterSteps {
     @And("I enter a valid confirmEmail {string}")
     public void iEnterAValidConfirmEmail(String confirmEmail) {
         getElementByName("ConfirmEmailAddress").sendKeys(confirmEmail);
-
-
     }
 
     @And("I enter a valid password {string}")
@@ -93,8 +89,6 @@ public class RegisterSteps {
         } else if (!shouldSelect && termsCheckbox.isSelected()) {
             checkbox.click();
         }
-
-        
     }
 
     @And("I selected ageAccept {string}")
@@ -154,7 +148,7 @@ public class RegisterSteps {
             Assert.assertNotNull("Expected error message not found: " + expectedMessage, errorMessage);
             Assert.assertEquals("Error message text does not match", expectedMessage, errorMessage.getText());
         } else {
-            validateFormFields(); // User remains on the registration page; check fields
+            validateFormFields();
         }
     }
     private String getFieldValue(String fieldName) {
@@ -176,7 +170,6 @@ public class RegisterSteps {
         return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
     }
     private void validateFormFields() {
-        String dob = getFieldValue("DateOfBirth");
         String firstName = getFieldValue("Forename");
         String lastName = getFieldValue("Surname");
         String email = getFieldValue("EmailAddress");
