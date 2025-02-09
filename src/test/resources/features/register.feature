@@ -14,9 +14,8 @@ Feature: register a user
       And I click button
       Then I should see a "<expectedMessage>" message
       Examples:
-        | browser | dob        |  | firstname | lastname | email                | confirmEmail         | password  | confirmPassword | terms | ageAccept | codeOfEthics | expectedMessage                                                           |
-        | chrome  | 01/02/1989 |  | test      |          | testuser89@gmail.com | testuser89@gmail.com | qwerty123 | qwerty123       | true  | true      | true         | Last Name is required                                                     |
-        | firefox | 01/02/1989 |  | test      | user     | testuser89@gmail.com | testuser89@gmail.com | qwerty123 | qwerty          | true  | true      | true         | Password did not match                                                    |
-        | chrome  | 01/02/1989 |  | test      | user     | testuser89@gmail.com | testuser89@gmail.com | qwerty123 | qwerty123       | false | true      | true         | You must confirm that you have read and accepted our Terms and Conditions |
-        | firefox | 01/02/1989 |  | test      | user     | testuser89@gmail.com | testuser89@gmail.com | qwerty123 | qwerty123       | true  | true      | true         | THANK YOU FOR CREATING AN ACCOUNT WITH BASKETBALL ENGLAND                 |
-
+        | browser | dob        | firstname | lastname | email                | confirmEmail         | password  | confirmPassword | terms | ageAccept | codeOfEthics | expectedMessage                                                           |
+        | chrome  | 01/02/1989 | test      |          | testuser89@gmail.com | testuser89@gmail.com | qwerty123 | qwerty123       | true  | true      | true         | Last Name is required                                                     |
+        | chrome  | 01/02/1989 | test      | user     | testuser89@gmail.com | testuser89@gmail.com | qwerty123 | qwerty          | true  | true      | true         | Password did not match                                                    |
+        | firefox | 01/02/1989 | test      | user     | testuser89@gmail.com | testuser89@gmail.com | qwerty123 | qwerty123       | false | true      | true         | You must confirm that you have read and accepted our Terms and Conditions |
+        | chrome  | 01/02/1989 | test      | user     | testuser89@gmail.com | testuser89@gmail.com | qwerty123 | qwerty123       | true  | true      | true         | THANK YOU FOR CREATING AN ACCOUNT WITH BASKETBALL ENGLAND                 |
