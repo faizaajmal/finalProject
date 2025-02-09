@@ -1,0 +1,31 @@
+name: Run Selenium Tests
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      xvfb:
+        image: selenium/standalone-chrome
+        options: --shm-size=2g
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set Up Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'  # Adjust Java version as needed
+
+      - name: Set Up Chrome and ChromeDriver
+        uses: browser-actions/setup-chrome@v1
+
+      - name: Set Up Firefox and GeckoDriver
+        uses: browser-actions/setup-firefox@v1
+
+      - name: Build and test
+        run: mvn clean install
